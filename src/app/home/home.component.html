@@ -1,0 +1,304 @@
+  <!--category section start -->
+  <div class="container">
+    <div class="category_section">
+       <div class="row">
+          <div class="col-lg-2 col-sm-12">
+             <h1 class="category_text">Nos Produits</h1>
+          </div>
+          <div class="col-lg-10 col-sm-12 main">
+             <div class="col">
+                <div class="box_main">
+                   <div class="icon_1"></div>
+                   <h4 class="fashion_text active">Téléphonie</h4>
+                </div>
+             </div>
+             <div class="col">
+                <div class="box_main">
+                   <div class="icon_2"></div>
+                   <h4 class="fashion_text active">Informatique</h4>
+                </div>
+             </div>
+             <div class="col">
+                <div class="box_main">
+                   <div class="icon_3"></div>
+                   <h4 class="fashion_text active">Electroménager</h4>
+                </div>
+             </div>
+             <div class="col">
+                <div class="box_main">
+                  <div class="icon_4"></div>
+                   <h4 class="fashion_text active">Fashion</h4>
+                </div>
+             </div>
+             <div class="col">
+                <div class="box_main">
+                   <div class="icon_5"></div>
+                   <h4 class="fashion_text active">Impression</h4>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+</div>
+
+ <br> <br>
+<div class="element_section">
+   <div class="center">
+   <mat-accordion multi="true">
+      <mat-expansion-panel class="panel" [expanded]="true">
+         <h2 class="example-h2">Ajouter Produit</h2>
+    <ol>
+      <form [formGroup]="nameForm">
+       <li>
+        <mat-form-field appearance="outline">
+          <mat-label>Référence de produit</mat-label>
+          <input matInput placeholder="Reference" name="Reference" [(ngModel)]="Reference" formControlName="Reference">
+        </mat-form-field>
+       </li>
+
+       <li>
+        <mat-form-field appearance="outline">
+            <mat-label>Catégorie de produit</mat-label>
+            <mat-select placeholder ="sous_famille" type="text" formControlName ="sous_famille" name="sous_famille" [(ngModel)]="sous_famille">
+                <mat-option value="Smartphone Android">Smartphone Android</mat-option>
+                <mat-option value="PC Portable">PC Portable</mat-option>
+                <mat-option value="Climatiseur">Climatiseur</mat-option>
+                <mat-option value="Réfrigérateur">Réfrigérateur</mat-option>
+                <mat-option value="Scanner">Scanner</mat-option>
+            </mat-select>
+        </mat-form-field>
+       </li>
+
+        <li>
+        <mat-form-field appearance="outline">
+            <mat-label>Magasin</mat-label>
+            <input matInput placeholder="Magasin" formControlName ="Magasin" type="text" name="Magasin"  [(ngModel)]="Magasin" (blur)='testevent()'>
+        </mat-form-field>
+       </li>
+
+       <li>
+        <mat-form-field appearance="outline">
+            <mat-label>Prix</mat-label>
+            <input matInput placeholder="Prix" type="text" name="Prix" [(ngModel)]="Prix">
+        </mat-form-field>
+        </li>
+        <li>
+         <button mat-raised-button class="mybutton" color="primary">Ajouter</button>
+        </li>
+      </form>
+    </ol>
+    </mat-expansion-panel>
+    </mat-accordion>
+   </div>
+<br> <br>
+</div>
+<div class="category_section_2">
+   <div>
+     <mat-accordion>
+         <mat-expansion-panel class="panel2" [disabled]="isDisabled">
+           <mat-expansion-panel-header>
+             <mat-panel-title class="marp">
+               Nom de Produit
+             </mat-panel-title>
+             <mat-panel-description>
+               <p class="marpp">{{Reference}}</p>
+             </mat-panel-description>
+           </mat-expansion-panel-header>
+           <p class="marp">{{inspectionTypesList.description}}</p>
+           <ng-template matExpansionPanelContent>
+            <table class="table table-striped">
+               <thead>
+                 <th>Référence de produit</th>
+                 <th>Description</th>
+                 <th>Prix</th>
+                 <th>Photo </th>
+                 <th>Magasin</th>
+                 <th>Disponibilité</th>
+               </thead>
+               <tbody>
+                 <tr *ngFor="let item of inspectionTypesList;">
+                    <td>{{item.reference}}</td>
+                    <td>{{item.description}}</td>
+                   <td>{{item.prix}}</td>
+                   <td><img [src]=getSantizeUrl(item.photo)  width="1680px" height="1580px"></td>
+                   <td><img [src]=getSantizeUrl(item.nom_magasin) width ="950px" height="950px"></td>
+                   <td>{{item.stock}}</td>         
+                  </tr>
+               </tbody>
+               </table>
+                  
+          </ng-template>
+         </mat-expansion-panel>
+     </mat-accordion>
+   </div>
+</div>
+<div class="category_section_2">
+<div class="featured-product product">
+   <div class="container-fluid" >  
+    <div class="section-header">
+        <h1>Featured Product</h1>
+    </div>
+    <div class="row align-items-center product-slider product-slider-4 slick-initialized slick-slider">
+        <button class="slick-prev slick-arrow" aria-label="Previous" type="button">Previous</button>
+        <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 4410px; transform: translate3d(-1260px, 0px, 0px);">
+            <div class="col-lg-3 slick-slide slick-cloned" data-slick-index="-4" aria-hidden="true" tabindex="-1" style="width: 315px;">
+            <div class="product-item">
+                <div class="product-title">
+                    <a href="#" tabindex="-1">Product Name</a>
+                </div>
+                <div class="product-image">
+                    <a href="product-detail.html" tabindex="-1">
+                        <img src="./assets/images/product-01.jpg" alt="Product Image">
+                    </a>
+                </div>
+            </div>
+        </div><div class="col-lg-3 slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" tabindex="-1" style="width: 315px;">
+            <div class="product-item">
+                <div class="product-title">
+                    <a href="#" tabindex="-1">Product Name</a>
+                </div>
+                <div class="product-image">
+                    <a href="product-detail.html" tabindex="-1">
+                        <img src="./assets/images/product-02.jpg" alt="Product Image">
+                    </a>
+                </div>
+            </div>
+        </div><div class="col-lg-3 slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" tabindex="-1" style="width: 315px;">
+            <div class="product-item">
+                <div class="product-title">
+                    <a href="#" tabindex="-1">Product Name</a>
+                </div>
+                <div class="product-image">
+                    <a href="product-detail.html" tabindex="-1">
+                        <img src="./assets/images/product-03.jpg" alt="Product Image">
+                    </a>
+                </div>
+            </div>
+        </div><div class="col-lg-3 slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1" style="width: 315px;">
+            <div class="product-item">
+                <div class="product-title">
+                    <a href="#" tabindex="-1">Product Name</a>
+                </div>
+                <div class="product-image">
+                    <a href="product-detail.html" tabindex="-1">
+                        <img src="./assets/images/product-04.jpg" alt="Product Image">
+                    </a> 
+                </div>
+            </div>
+        </div><div class="col-lg-3 slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="0" style="width: 315px;">
+            <div class="product-item">
+                <div class="product-title">
+                    <a href="#" tabindex="0">Product Name</a>
+                </div>
+                <div class="product-image">
+                    <a href="product-detail.html" tabindex="0">
+                        <img src="./assets/images/product-05.jpg" alt="Product Image">
+                    </a>
+                </div>
+            </div>
+        </div><div class="col-lg-3 slick-slide slick-active" data-slick-index="1" aria-hidden="false" tabindex="0" style="width: 315px;">
+            <div class="product-item">
+                <div class="product-title">
+                    <a href="#" tabindex="0">Product Name</a>
+                </div>
+                <div class="product-image">
+                    <a href="product-detail.html" tabindex="0">
+                        <img src="./assets/images/product-06.jpg" alt="Product Image">
+                    </a>
+                </div>
+            </div>
+        </div><div class="col-lg-3 slick-slide slick-active" data-slick-index="2" aria-hidden="false" tabindex="0" style="width: 315px;">
+            <div class="product-item">
+                <div class="product-title">
+                    <a href="#" tabindex="0">Product Name</a>
+                </div>
+                <div class="product-image">
+                    <a href="product-detail.html" tabindex="0">
+                        <img src="./assets/images/product-02.jpg" alt="Product Image">
+                    </a>
+                </div>
+            </div>
+        </div><div class="col-lg-3 slick-slide slick-active" data-slick-index="3" aria-hidden="false" tabindex="0" style="width: 315px;">
+            <div class="product-item">
+                <div class="product-title">
+                    <a href="#" tabindex="0">Product Name</a>
+                </div>
+                <div class="product-image">
+                    <a href="product-detail.html" tabindex="0">
+                        <img src="./assets/images/product-03.jpg" alt="Product Image">
+                    </a>
+                </div>
+            </div>
+        </div><div class="col-lg-3 slick-slide" data-slick-index="4" aria-hidden="true" tabindex="-1" style="width: 315px;">
+            <div class="product-item">
+                <div class="product-title">
+                    <a href="#" tabindex="-1">Product Name</a>
+                </div>
+                <div class="product-image">
+                    <a href="product-detail.html" tabindex="-1">
+                        <img src="./assets/images/product-04.jpg" alt="Product Image">
+                    </a>
+                </div>
+            </div>
+        </div><div class="col-lg-3 slick-slide slick-cloned" data-slick-index="5" aria-hidden="true" tabindex="-1" style="width: 315px;">
+            <div class="product-item">
+                <div class="product-title">
+                    <a href="#" tabindex="-1">Product Name</a>
+                </div>
+                <div class="product-image">
+                    <a href="product-detail.html" tabindex="-1">
+                        <img src="./assets/images/product-05.jpg" alt="Product Image">
+                    </a>
+                </div>
+            </div>
+        </div><div class="col-lg-3 slick-slide slick-cloned" data-slick-index="6" aria-hidden="true" tabindex="-1" style="width: 315px;">
+            <div class="product-item">
+                <div class="product-title">
+                    <a href="#" tabindex="-1">Product Name</a>
+                </div>
+                <div class="product-image">
+                    <a href="product-detail.html" tabindex="-1">
+                        <img src="./assets/images/product-01.jpg" alt="Product Image">
+                    </a> 
+                </div>
+            </div>
+        </div><div class="col-lg-3 slick-slide slick-cloned" data-slick-index="7" aria-hidden="true" tabindex="-1" style="width: 315px;">
+            <div class="product-item">
+                <div class="product-title">
+                    <a href="#" tabindex="-1">Product Name</a>
+                </div>
+                <div class="product-image">
+                    <a href="product-detail.html" tabindex="-1">
+                        <img src="./assets/images/product-02.jpg" alt="Product Image">
+                    </a>
+                </div>
+            </div>
+        </div><div class="col-lg-3 slick-slide slick-cloned" data-slick-index="8" aria-hidden="true" tabindex="-1" style="width: 315px;">
+            <div class="product-item">
+                <div class="product-title">
+                    <a href="#" tabindex="-1">Product Name</a>
+                </div>
+                <div class="product-image">
+                    <a href="product-detail.html" tabindex="-1">
+                        <img src="./assets/images/product-03.jpg" alt="Product Image">
+                    </a>
+                </div>
+            </div>
+        </div><div class="col-lg-3 slick-slide slick-cloned" data-slick-index="9" aria-hidden="true" tabindex="-1" style="width: 315px;">
+            <div class="product-item">
+                <div class="product-title">
+                    <a href="#" tabindex="-1">Product Name</a>
+                </div>
+                <div class="product-image">
+                    <a href="product-detail.html" tabindex="-1">
+                        <img src="./assets/images/product-06.jpg" alt="Product Image">
+                    </a>
+                </div>
+            </div>
+          </div></div></div>
+
+          <button class="slick-next slick-arrow" aria-label="Next" type="button">Next</button>
+    </div>
+</div> 
+</div>
+</div>
